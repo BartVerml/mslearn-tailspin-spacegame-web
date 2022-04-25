@@ -42,14 +42,14 @@ steps:
     inputs:
       command: "restore"
       projects: "**/*.csproj"
-  
-  - template: template/build.yml
-    parameters:
-      buildConfiguration: 'Debug'
 
-  - template: template/build.yml
+  - template: templates/build.yml
     parameters:
-      buildConfiguration: 'Release'
+      buildConfiguration: "Debug"
+
+  - template: templates/build.yml
+    parameters:
+      buildConfiguration: "Release"
 
   - task: PublishBuildArtifacts@1
     displayName: "Publish Artifact: drop"
